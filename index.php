@@ -1,11 +1,4 @@
 <?php
-$file = fopen('.env', 'r');
-while(!feof($file)) {
-    $line = trim(fgets($file));
-    if (!empty($line)) {
-        putenv($line);
-    }
-}
-fclose($file);
+$env = parse_ini_file('../.env');
 
-echo getenv('TEST_ENV');
+echo $env['TEST_ENV'];
